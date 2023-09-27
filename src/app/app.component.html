@@ -1,0 +1,22 @@
+
+<img class="fondo" src="/assets/HL.jpg" [ngStyle]="{'z-index': ambiente}">
+<img class="fondosl" src="/assets/HLsl.jpg" [ngStyle]="{'z-index': ambientesl}">
+<img class="fondoOscuro" src="/assets/HO.jpg" [ngStyle]="{'z-index': luz}">
+<img class="fondouv" src="/assets/UV.jpg" [ngStyle]="{'z-index': uv}">
+<img class="HI" src="/assets/HI.png" [ngStyle]="{'z-index': hi}">
+<div class="punteronegro" [ngStyle]="{ 'background': puntero, 'z-index':zUV}"></div>
+
+<!-- 
+<div class="z2"> -->
+    <div [ngStyle]="{'transform': transformacion,}" class="boxtubo">
+        <img src="/assets/tubo2.png" class="tubo">
+        <img src="/assets/pelota.png" [ngStyle]="{'top.px': altura, 'left.px': fondo, 'rotate.deg': giro}" class="bola">
+    </div>
+        <img class="Bantihorario" src="/assets/antihorario.png" (click)="i()" (click)="rotar(-90)" [ngStyle]="{ 'z-index': ftubos}">
+        <img class="Bhorario" src="/assets/horario.png" (click)="d()" (click)="rotar(90)" [ngStyle]="{ 'z-index': ftubos}">
+        <div class="puerta" (click)="puerta()"></div>
+        <div class="interruptor" (click)="interruptor()"></div>
+        <div class="linterno" (click)="linterna()"[ngStyle]="{'z-index': linternaUV}" ></div>
+        <div class=" reflejoPizzara" [ngStyle]="{ 'background': pizarra, 'z-index':zPizarra}"></div>
+<!-- 
+</div> -->
