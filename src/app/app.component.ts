@@ -5,6 +5,7 @@ import { Component, HostListener } from '@angular/core';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
+
 export class AppComponent {
   title = 'Escape_room';
 
@@ -34,7 +35,7 @@ export class AppComponent {
   zUV: number = 0;
   zPizarra: number = 0;
   hi: number = 0;
-
+  codigo: boolean = false;
 
 
   /*  pelota(){
@@ -150,7 +151,12 @@ export class AppComponent {
   }
 
   puerta() {
-    window.alert("Todavía no puedes salir, tampoco ahora puedes hacer nada para que te deje, esto está en desarrollo")
+    /* window.alert("Todavía no puedes salir, tampoco ahora puedes hacer nada para que te deje, esto está en desarrollo") */
+    this.codigo = true;
+  }
+
+  cerrar(){
+    this.codigo = false;
   }
 
   interruptor() {
@@ -188,10 +194,10 @@ export class AppComponent {
   onMouseMove(e: any) {
     this.punteroX = e.clientX;
     this.punteroY = e.clientY;
-    this.pizarraX = e.clientX / 4;
+    this.pizarraX = e.clientX / 8;
     this.pizarraY = e.clientY / 6;
     this.puntero = "radial-gradient(circle at " + this.punteroX + "px " + this.punteroY + "px, transparent 50px, black 120px)";
-    this.pizarra = "radial-gradient(circle at " + this.pizarraX + "px " + this.pizarraY + "px, rgba(50, 0, 255, 0.8) 0px, transparent 10px)";/* 
+    this.pizarra = "radial-gradient(circle at " + this.pizarraX + "px " + this.pizarraY + "px, rgba(50, 0, 255, 0.2) 5px, transparent 10px)";/* 
     console.log(e); */
   }
 

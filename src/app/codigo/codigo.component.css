@@ -1,0 +1,66 @@
+.fondo{
+    position: absolute;
+    height: 100vh;
+    width: 100vw;
+    background-color: rgba(0, 0, 0, 0.473);
+    z-index: 7;
+}
+
+.Caja{
+    border: 2px solid black;
+    text-align: center;
+    line-height: 40px;
+    margin: 10px;
+    border-radius: 28px;
+    box-shadow:2px 2px 2px black;
+    background-color: white;
+    font-size: 30px;
+}
+
+@font-face {
+    font-family: Calculadora;
+    src: url("/assets/Calculator.ttf") format("opentype");
+}
+.Caja:hover{
+    box-shadow:3px 3px 3px black;
+    float: left;
+    transition: 0.3s;
+}
+
+.Caja:active{
+    box-shadow:inset 2px 2px 2px black;
+    transition: 0.0s;
+}
+.Calculadora{
+    position: absolute;
+    z-index: 8;
+    display: grid;
+    grid-template-columns: 100px 100px 100px; /* ojo, dato importante pa que salgan iguales */
+    grid-template-rows: 120px 80px 80px 80px 80px ;
+    height: 450px;
+    width: 300px;
+    border: 2px solid black;
+    border-radius: 10px;
+    box-shadow: 8px 8px 0px rgb(34, 34, 34);
+    background-color: rgb(224, 224, 224);
+    margin-top: 10vw;
+    margin-left: calc(50vw - 150px);
+
+}
+
+#resultado{  /* descubrir por qué tengo asterisco */
+    border: 1px solid black;
+    margin: 10px;
+    border-radius: 10px;
+    grid-column: 1/4;
+    background-color: green;
+    box-shadow:inset 2px 2px 3px black;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    font-size: 80px;
+    color: white;
+    font-family: Calculadora;
+    text-align:left;
+    padding-left: 50px;
+    height: 90px;
+}

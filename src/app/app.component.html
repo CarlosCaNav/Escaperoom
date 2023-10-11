@@ -18,5 +18,7 @@
         <div class="interruptor" (click)="interruptor()"></div>
         <div class="linterno" (click)="linterna()"[ngStyle]="{'z-index': linternaUV}" ></div>
         <div class=" reflejoPizzara" [ngStyle]="{ 'background': pizarra, 'z-index':zPizarra}"></div>
-<!-- 
-</div> -->
+
+       <div *ngIf="codigo == true">  <app-codigo></app-codigo> </div>
+
+<div class="negro " *ngIf="codigo == true" (click)="cerrar()"></div> <!-- Este es el fondo negro de la calculadora -->
