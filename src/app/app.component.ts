@@ -36,6 +36,7 @@ export class AppComponent {
   zPizarra: number = 0;
   hi: number = 0;
   codigo: boolean = false;
+  salida: boolean = false;
 
 
   /*  pelota(){
@@ -113,7 +114,7 @@ export class AppComponent {
       this.altura = -145;
       this.posicion = 7;
       setTimeout(() => {
-        window.alert("aquí en la bola aparecerá una imagen con el número 42 mismo")
+        window.alert("aquí en la bola aparecerá una imagen con el número 4 mismo")
       }, 1000);
       setTimeout(() => {
         this.ftubos = 0;
@@ -151,7 +152,10 @@ export class AppComponent {
   }
 
   puerta() {
-    /* window.alert("Todavía no puedes salir, tampoco ahora puedes hacer nada para que te deje, esto está en desarrollo") */
+   window.alert("Todavía no puedes salir, tampoco ahora puedes hacer nada para que te deje, esto está en desarrollo")
+    ;
+  }
+  teclas() {
     this.codigo = true;
   }
 

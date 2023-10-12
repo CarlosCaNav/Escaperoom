@@ -12,7 +12,7 @@ export class CodigoComponent {
   resultado: string = ''; // su resultado
 
   pulsarBoton(boton: string) {
-    if ( /* Number(this.resultado) <= 9999 */ this.resultado.length < 5 ){
+    if ( /* Number(this.resultado) <= 99 */ this.resultado.length < 3 ){
   this.resultado += boton;  }
   }
 
@@ -22,9 +22,9 @@ export class CodigoComponent {
   }
 
   verificar(){
-    if (this.resultado == "74286"){
+    if (this.resultado == "748"){
     window.alert("Erputoamo")}
-    else if (this.resultado !== "74286"){
-      window.alert("fallo")}
+    else if (this.resultado !== "748"){
+      window.alert("fallo")}0
   }
 }
