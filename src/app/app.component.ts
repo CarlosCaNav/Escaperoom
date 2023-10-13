@@ -1,4 +1,5 @@
-import { Component, HostListener } from '@angular/core';
+import { Component, HostListener, inject } from '@angular/core';
+import {ComunicacionService} from '../app/comunicacion.service'; /* hay que incluir el servicio */
 
 @Component({
   selector: 'app-root',
@@ -8,6 +9,9 @@ import { Component, HostListener } from '@angular/core';
 
 export class AppComponent {
   title = 'Escape_room';
+
+
+  constructor(public comunicacionService: ComunicacionService) {} /* esto también es necesario para el servicio */
 
   ambiente = 1;
   ambientesl = 0;
@@ -36,12 +40,11 @@ export class AppComponent {
   zPizarra: number = 0;
   hi: number = 0;
   codigo: boolean = false;
-  salida: boolean = false;
+  salida: boolean = false; /* esto es si puedes salir de la habitacion o no */
 
 
   /*  pelota(){
     } */
-
 
   rotar(grados: number) {
     this.rotacion += grados;
@@ -152,8 +155,8 @@ export class AppComponent {
   }
 
   puerta() {
-   window.alert("Todavía no puedes salir, tampoco ahora puedes hacer nada para que te deje, esto está en desarrollo")
-    ;
+   window.alert("Todavía no puedes salir, debes introducir un código correcto");
+   if (this.comunicacionService.estado == true){window.alert("enhorabuena! has conseguido salir"), console.log("furula el componente") }
   }
   teclas() {
     this.codigo = true;
@@ -193,6 +196,9 @@ export class AppComponent {
     this.ambientesl = 1;
   }
 
+  abierto(){
+    this.salida = true, console.log("furula")
+  }
 
   @HostListener('document:mousemove', ['$event'])
   onMouseMove(e: any) {
@@ -204,6 +210,7 @@ export class AppComponent {
     this.pizarra = "radial-gradient(circle at " + this.pizarraX + "px " + this.pizarraY + "px, rgba(50, 0, 255, 0.2) 5px, transparent 10px)";/* 
     console.log(e); */
   }
+
 
 }
 
