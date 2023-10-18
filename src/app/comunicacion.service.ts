@@ -10,5 +10,8 @@ export class ComunicacionService {
   estado: boolean = false;
 
 
-  aniadir(){this.estado = true, console.log("furula el servicio")};
+  aniadir(){
+    this.estado = true;
+    console.log("furula el servicio");
+  };
 }
