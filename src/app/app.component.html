@@ -1,4 +1,3 @@
-
 <img class="fondo" src="/assets/HL.jpg" [ngStyle]="{'z-index': ambiente}">
 <img class="fondosl" src="/assets/HLsl.jpg" [ngStyle]="{'z-index': ambientesl}">
 <img class="fondoOscuro" src="/assets/HO.jpg" [ngStyle]="{'z-index': luz}">
@@ -8,18 +7,39 @@
 
 <!-- 
 <div class="z2"> -->
-    <div [ngStyle]="{'transform': transformacion,}" class="boxtubo">
-        <img src="/assets/tubo2.png" class="tubo">
-        <img src="/assets/pelota.png" [ngStyle]="{'top.px': altura, 'left.px': fondo, 'rotate.deg': giro}" class="bola">
-    </div>
-        <img class="Bantihorario" src="/assets/antihorario.png" (click)="i()" (click)="rotar(-90)" [ngStyle]="{ 'z-index': ftubos}">
-        <img class="Bhorario" src="/assets/horario.png" (click)="d()" (click)="rotar(90)" [ngStyle]="{ 'z-index': ftubos}">
-        <div class="puerta" (click)="puerta()"></div>
-        <div class="codigo" (click)="teclas()"></div> 
-        <div class="interruptor" (click)="interruptor()"></div>
-        <div class="linterno" (click)="linterna()"[ngStyle]="{'z-index': linternaUV}" ></div>
-        <div class=" reflejoPizzara" [ngStyle]="{ 'background': pizarra, 'z-index':zPizarra}"></div>
+<div [ngStyle]="{'transform': transformacion,}" class="boxtubo">
+    <img src="/assets/tubo2.png" class="tubo">
+    <img src="/assets/pelota.png" [ngStyle]="{'top.px': altura, 'left.px': fondo, 'rotate.deg': giro}" class="bola">
+    <img src="/assets/bola.png" class="b42" *ngIf="ftubos == 0">
+</div>
+<img class="Bantihorario" src="/assets/antihorario.png" (click)="i()" (click)="rotar(-90)"
+    [ngStyle]="{ 'z-index': ftubos}">
+<img class="Bhorario" src="/assets/horario.png" (click)="d()" (click)="rotar(90)" [ngStyle]="{ 'z-index': ftubos}">
+<div class="puerta" (click)="puerta()"></div>
+<div class="codigo" (click)="teclas()"></div>
+<div class="interruptor" (click)="interruptor()"></div>
+<div class="linterno" (click)="linterna()" [ngStyle]="{'z-index': linternaUV}"></div>
+<div class=" reflejoPizzara" [ngStyle]="{ 'background': pizarra, 'z-index':zPizarra}"></div>
 
-       <div *ngIf="codigo == true">  <app-codigo></app-codigo> </div>
+<div class="BtnInterrogacion" *ngIf="ayuda == 0" (click)="botonayuda()"> Ayuda </div>
+<div class="BtnCerrar" *ngIf="ayuda != 0" (click)="botonayuda()"> Cerrar </div>
+
+<div class="ayudadialogo" *ngIf="ayuda == 1"> Esto está muy oscuro, tal vez deberías encender la luz... </div>
+<div class="ayudadialogo" *ngIf="ayuda == 2"> Ese tubo parece que puede girar de alguna manera... <br> ¿Será la forma de
+    sacar la pelota? </div>
+<div class="ayudadialogo" *ngIf="ayuda == 3"> ¿Se podrá coger esa linterna ultravioleta? </div>
+<div class="ayudadialogo" *ngIf="ayuda == 4"> Con tanta luz que hay en la habitación la interna ultravioleta no ilumina
+    nada... <br><br>
+    Y cuando sepas el código, introdúcelo en la botonera de la pared.</div>
+<div class="ayudadialogo" *ngIf="ayuda == 5"> ¿Encuentras algo? </div>
+<div class="ayudadialogo" *ngIf="ayuda == 6"> En la puerta sonó un click... ¿se podrá abrir ya? </div>
+<div class="ayudadialogo" *ngIf="ayuda == 7"> Introduce un código.<br><br>La <b>"E"</b> para enviarlo, la <b>"C"</b> para borrarlo.</div>
+
+<div class="ayudadialogo" *ngIf="ayuda == 8"> Todavía no puedes salir, debes introducir un código correcto.</div>
+<div class="ayudadialogo" *ngIf="ayuda == 9"> Enhorabuena! Lograste terminar esta miniEscapeRoom.
+    <br><br> &#128525;  Gracias por jugar. &#128525; </div>
+
+<div *ngIf="codigo == true"> <app-codigo></app-codigo> </div>
 
 <div class="negro " *ngIf="codigo == true" (click)="cerrar()"></div> <!-- Este es el fondo negro de la calculadora -->
+<div class="negro2 " *ngIf="ayuda != 0" (click)="cerrar()"></div> <!-- Este es el fondo negro de la ayuda -->

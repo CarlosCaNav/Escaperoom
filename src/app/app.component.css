@@ -40,11 +40,9 @@
   zoom: 0.8;
   z-index: 2;
   transition-duration: 0.5s;
-  /* 
-  transition-property: "rotate"; */
+  position: absolute;
   top: calc(50% - 240px);
   left: calc(50% - 150px);
-  position: absolute;
 }
 
 .bola {
@@ -63,14 +61,14 @@
   position: absolute;
   z-index: 2;
   height: 100px;
-  top: 500px;
+  top: calc(50vh + 30px);
   left: calc(50% - 200px);
-  opacity: 20%;
-  transition: 1s;
+  opacity: 30%;
+  transition: 0.5s;
 }
 
 .Bantihorario:hover {
-  opacity: 80%;
+  opacity: 100%;
   transition: 0.2s;
   cursor: url(/assets/dedo.png), auto;
 }
@@ -79,14 +77,14 @@
   position: absolute;
   z-index: 2;
   height: 100px;
-  top: 500px;
+  top: calc(50vh + 30px);
   left: calc(50% + 110px);
-  opacity: 20%;
-  transition: 1s;
+  opacity: 30%;
+  transition: 0.5s;
 }
 
 .Bhorario:hover {
-  opacity: 80%;
+  opacity: 800%;
   transition: 0.2s;
   cursor: url(/assets/dedo.png), auto;
 }
@@ -155,6 +153,75 @@
   position: absolute;
   height: 100vh;
   width: 100vw;
-  background-color: rgba(0, 0, 0, 0.473);
+  background-color: rgba(0, 0, 0, 0.63);
   z-index: 7;
 }
+.negro2{
+  position: absolute;
+  height: 100vh;
+  width: 100vw;
+  background-color: rgba(0, 0, 0, 0.63);
+  z-index: 8;
+}
+
+.ayudadialogo{
+  position: absolute;
+  z-index: 20;
+  background-color: aliceblue;
+  border-radius: 40px;
+  left: calc(50% - 250px);
+  top: calc(50% - 150px);
+  width: 500px;
+  text-align: center;
+  border: 5px solid black;
+  padding: 10px;
+  font-size: 20px;
+}
+.BtnInterrogacion{
+  position: absolute;
+  z-index: 8;
+  background-color: aliceblue;
+  border-radius: 40px;
+  left: calc(50% + 300px);
+  top: calc(50% - 300px);
+  text-align: center;
+  border: 5px solid black;
+  padding: 10px;
+  font-size: 30px;
+  cursor: url(/assets/dedo.png), auto;
+}
+.BtnCerrar{
+  position: absolute;
+  z-index: 9;
+  background-color: aliceblue;
+  border-radius: 40px;
+  left: calc(50% + 300px);
+  top: calc(50% - 300px);
+  text-align: center;
+  border: 5px solid red;
+  padding: 10px;
+  font-size: 30px;
+  cursor: url(/assets/dedo.png), auto;
+}
+
+.b42{
+  position: absolute;
+  z-index: 3;
+  transform: rotate(180deg);
+  top:-143px;
+  left:254px;
+  height: 30px;
+  width: 30px;
+  animation-name: delay;
+  animation-duration: 3000ms;
+}
+
+@keyframes delay {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+}
+

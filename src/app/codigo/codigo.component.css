@@ -1,12 +1,12 @@
 
 
 .Caja{
-    border: 2px solid black;
+    border: 0px solid black;
     text-align: center;
     line-height: 40px;
     margin: 10px;
     border-radius: 28px;
-    box-shadow:2px 2px 2px black;
+    box-shadow:3px 3px 3px black;
     background-color: white;
     font-size: 30px;
 }
@@ -16,14 +16,15 @@
     src: url("/assets/Calculator.ttf") format("opentype");
 }
 .Caja:hover{
-    box-shadow:3px 3px 3px black;
     float: left;
-    transition: 0.3s;
+    /* transition: 0.3s; */
+    border: 2px solid black;
 }
 
 .Caja:active{
     box-shadow:inset 2px 2px 2px black;
     transition: 0.0s;
+    border: 0px solid black;
 }
 .Calculadora{
     position: absolute;
@@ -46,8 +47,8 @@
     border: 1px solid black;
     margin: 10px;
     border-radius: 10px;
-    grid-column: 1/4;
-    background-color: green;
+    grid-column: 1/4;/* 
+    background-color: green; */
     box-shadow:inset 2px 2px 3px black;
     margin-top: 20px;
     margin-bottom: 20px;
@@ -57,4 +58,5 @@
     text-align:left;
     padding-left: 85px;
     height: 90px;
+    
 }

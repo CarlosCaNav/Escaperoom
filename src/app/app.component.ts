@@ -1,5 +1,5 @@
 import { Component, HostListener, inject } from '@angular/core';
-import {ComunicacionService} from '../app/comunicacion.service'; /* hay que incluir el servicio */
+import { ComunicacionService } from '../app/comunicacion.service'; /* hay que incluir el servicio */
 
 @Component({
   selector: 'app-root',
@@ -11,7 +11,9 @@ export class AppComponent {
   title = 'Escape_room';
 
 
-  constructor(public comunicacionService: ComunicacionService) {} /* esto también es necesario para el servicio */
+  constructor(public comunicacionService: ComunicacionService) { } /* esto también es necesario para el servicio */
+
+  ayuda: number = 0;
 
   ambiente = 1;
   ambientesl = 0;
@@ -27,7 +29,7 @@ export class AppComponent {
   giro: number = 0; /* Esto es pa que la pelota mire en la misma dirección siempre */
 
   luz: number = 4; /* es el cuarto apagado */
-  ftubos: number = 2; /* esto es para que el tubo desaparezca cuando saquen la bola */
+  ftubos: number = 2; /* esto es para que las flechas del tubo desaparezcan cuando saquen la bola */
   puntero: any = "";
   punteroX: number = 2;
   punteroY: any = 2;
@@ -42,11 +44,16 @@ export class AppComponent {
   codigo: boolean = false;
   salida: boolean = false; /* esto es si puedes salir de la habitacion o no */
 
+  audioclick = new Audio('assets/click.ogg');
+  escape = new Audio('assets/celebracion.ogg');
+  /*   audioroce = new Audio('assets/roce.ogg'); */
+
 
   /*  pelota(){
     } */
 
   rotar(grados: number) {
+    this.audioclick.play();
     this.rotacion += grados;
     this.transformacion = "rotate(" + this.rotacion + "deg)";
     this.giro = this.rotacion * -1;
@@ -114,16 +121,11 @@ export class AppComponent {
 
 
     if (this.posicion == 6 && this.rotacionp == 2) {
+      this.ftubos = 0;
       this.altura = -145;
       this.posicion = 7;
-      setTimeout(() => {
-        window.alert("aquí en la bola aparecerá una imagen con el número 4 mismo")
-      }, 1000);
-      setTimeout(() => {
-        this.ftubos = 0;
-      }, 3000);
-
     }
+
     if (this.posicion == 6 && this.rotacionp == 3) {
       this.fondo = 174;
       this.posicion = 5;
@@ -155,39 +157,54 @@ export class AppComponent {
   }
 
   puerta() {
-   window.alert("Todavía no puedes salir, debes introducir un código correcto");
-   if (this.comunicacionService.estado == true){window.alert("enhorabuena! has conseguido salir"), console.log("furula el componente") }
+    if (this.comunicacionService.estado == true) { 
+      this.ayuda = 9; 
+      this.escape.play(); }
+    else {
+      this.ayuda = 8;
+    }
   }
+
   teclas() {
     this.codigo = true;
   }
 
-  cerrar(){
+  cerrar() {
     this.codigo = false;
+    /* this.ayuda = 0; */
   }
 
   interruptor() {
-    if (this.luz == 0 && this.linternaUV == 2){
-      this.luz = 4;}
-    else if (this.luz == 4 && this.linternaUV == 2){
-      this.luz = 0;}
-    else if (this.luz == 0 && this.linternaUV == 0){
+
+    console.log("tubo " + this.ftubos + " posición"); /* borrar esto cuando haya descubierto por qué no furula */
+
+
+    this.audioclick.play();
+    if (this.luz == 0 && this.linternaUV == 2) {
+      this.luz = 4;
+    }
+    else if (this.luz == 4 && this.linternaUV == 2) {
+      this.luz = 0;
+    }
+    else if (this.luz == 0 && this.linternaUV == 0) {
       this.uv = 3;
-      this.hi=5
-      this.zUV=4;
-    this.linternaUV = 0.1;
-    this.zPizarra= 6;}
-    else if (this.uv == 3 && this.linternaUV == 0.1){
+      this.hi = 5
+      this.zUV = 4;
+      this.linternaUV = 0.1;
+      this.zPizarra = 6;
+    }
+    else if (this.uv == 3 && this.linternaUV == 0.1) {
       this.uv = 0;
-      this.hi=0
-      this.zUV=0;
-      this.zPizarra= 0;}
-      else if (this.uv == 0 && this.linternaUV == 0.1){
-        this.uv = 3;
-        this.zUV=4;
-        this.hi=5;
-        this.zPizarra= 6;
-      }
+      this.hi = 0
+      this.zUV = 0;
+      this.zPizarra = 0;
+    }
+    else if (this.uv == 0 && this.linternaUV == 0.1) {
+      this.uv = 3;
+      this.zUV = 4;
+      this.hi = 5;
+      this.zPizarra = 6;
+    }
   }
 
   linterna() {
@@ -196,8 +213,41 @@ export class AppComponent {
     this.ambientesl = 1;
   }
 
-  abierto(){
+  abierto() {
     this.salida = true, console.log("furula")
+  }
+
+  botonayuda() {
+    if (this.ayuda != 0) {
+      this.ayuda = 0;
+    }
+    else if (this.codigo == true) {
+      this.ayuda = 7;
+    }
+    else if (this.altura != -145 && this.luz == 0) {
+      this.ayuda = 2;
+    }
+
+
+    else if (this.luz == 4) {
+      this.ayuda = 1;
+    }
+    else if (this.luz == 0 && this.linternaUV == 2 && this.altura == -145) {
+      this.ayuda = 3;
+    }
+    else if (this.luz == 0 && this.linternaUV == 0 && this.altura == -145) {
+      this.ayuda = 4;
+    }
+    else if (this.uv == 3) {
+      this.ayuda = 5;
+    }
+    else if (this.luz == 0 && this.linternaUV == 0.1 && this.altura == -145) {
+      this.ayuda = 4;
+    }
+    else if (this.salida == true) {
+      this.ayuda = 6;
+    }
+    console.log("luz " + this.luz);
   }
 
   @HostListener('document:mousemove', ['$event'])
