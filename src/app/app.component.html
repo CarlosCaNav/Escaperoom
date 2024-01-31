@@ -33,7 +33,11 @@
     Y cuando sepas el código, introdúcelo en la botonera de la pared.</div>
 <div class="ayudadialogo" *ngIf="ayuda == 5"> ¿Encuentras algo? </div>
 <div class="ayudadialogo" *ngIf="ayuda == 6"> En la puerta sonó un click... ¿se podrá abrir ya? </div>
-<div class="ayudadialogo" *ngIf="ayuda == 7"> Introduce un código. La E para enviarlo, la C para borrarlo.</div>
+<div class="ayudadialogo" *ngIf="ayuda == 7"> Introduce un código.<br><br>La <b>"E"</b> para enviarlo, la <b>"C"</b> para borrarlo.</div>
+
+<div class="ayudadialogo" *ngIf="ayuda == 8"> Todavía no puedes salir, debes introducir un código correcto.</div>
+<div class="ayudadialogo" *ngIf="ayuda == 9"> Enhorabuena! Lograste terminar esta miniEscapeRoom.
+    <br><br> &#128525;  Gracias por jugar. &#128525; </div>
 
 <div *ngIf="codigo == true"> <app-codigo></app-codigo> </div>
 

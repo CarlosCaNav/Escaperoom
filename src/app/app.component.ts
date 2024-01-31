@@ -45,7 +45,8 @@ export class AppComponent {
   salida: boolean = false; /* esto es si puedes salir de la habitacion o no */
 
   audioclick = new Audio('assets/click.ogg');
-/*   audioroce = new Audio('assets/roce.ogg'); */
+  escape = new Audio('assets/celebracion.ogg');
+  /*   audioroce = new Audio('assets/roce.ogg'); */
 
 
   /*  pelota(){
@@ -156,11 +157,14 @@ export class AppComponent {
   }
 
   puerta() {
-    if (this.comunicacionService.estado == true) { window.alert("enhorabuena! has conseguido salir"), console.log("furula el componente") }
+    if (this.comunicacionService.estado == true) { 
+      this.ayuda = 9; 
+      this.escape.play(); }
     else {
-      window.alert("Todavía no puedes salir, debes introducir un código correcto");
+      this.ayuda = 8;
     }
   }
+
   teclas() {
     this.codigo = true;
   }
@@ -217,11 +221,11 @@ export class AppComponent {
     if (this.ayuda != 0) {
       this.ayuda = 0;
     }
+    else if (this.codigo == true) {
+      this.ayuda = 7;
+    }
     else if (this.altura != -145 && this.luz == 0) {
       this.ayuda = 2;
-    }
-    else if (this.codigo == true ) {
-      this.ayuda = 7;
     }
 
 
@@ -231,13 +235,13 @@ export class AppComponent {
     else if (this.luz == 0 && this.linternaUV == 2 && this.altura == -145) {
       this.ayuda = 3;
     }
-    else if (this.luz == 0 && this.linternaUV == 0  && this.altura == -145) {
+    else if (this.luz == 0 && this.linternaUV == 0 && this.altura == -145) {
       this.ayuda = 4;
     }
     else if (this.uv == 3) {
       this.ayuda = 5;
     }
-    else if (this.luz == 0 && this.linternaUV == 0.1  && this.altura == -145) {
+    else if (this.luz == 0 && this.linternaUV == 0.1 && this.altura == -145) {
       this.ayuda = 4;
     }
     else if (this.salida == true) {

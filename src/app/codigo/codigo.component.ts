@@ -41,7 +41,7 @@ export class CodigoComponent {
       this.audiowin.play();
       setTimeout(() => {
       this.color = "green"
-}, 1000);
+}, 1500);
     }
     else if (this.resultado !== "748") {
       this.color = "red";
@@ -51,6 +51,6 @@ export class CodigoComponent {
     setTimeout(() => {
             this.color = "green";;
             this.resultado = '';
-    }, 1000);
+    }, 2500);
   }
 }
