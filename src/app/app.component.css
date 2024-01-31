@@ -40,11 +40,9 @@
   zoom: 0.8;
   z-index: 2;
   transition-duration: 0.5s;
-  /* 
-  transition-property: "rotate"; */
+  position: absolute;
   top: calc(50% - 240px);
   left: calc(50% - 150px);
-  position: absolute;
 }
 
 .bola {
@@ -63,14 +61,14 @@
   position: absolute;
   z-index: 2;
   height: 100px;
-  top: 500px;
+  top: calc(50vh + 30px);
   left: calc(50% - 200px);
-  opacity: 20%;
-  transition: 1s;
+  opacity: 30%;
+  transition: 0.5s;
 }
 
 .Bantihorario:hover {
-  opacity: 80%;
+  opacity: 100%;
   transition: 0.2s;
   cursor: url(/assets/dedo.png), auto;
 }
@@ -79,14 +77,14 @@
   position: absolute;
   z-index: 2;
   height: 100px;
-  top: 500px;
+  top: calc(50vh + 30px);
   left: calc(50% + 110px);
-  opacity: 20%;
-  transition: 1s;
+  opacity: 30%;
+  transition: 0.5s;
 }
 
 .Bhorario:hover {
-  opacity: 80%;
+  opacity: 800%;
   transition: 0.2s;
   cursor: url(/assets/dedo.png), auto;
 }
@@ -158,6 +156,13 @@
   background-color: rgba(0, 0, 0, 0.63);
   z-index: 7;
 }
+.negro2{
+  position: absolute;
+  height: 100vh;
+  width: 100vw;
+  background-color: rgba(0, 0, 0, 0.63);
+  z-index: 8;
+}
 
 .ayudadialogo{
   position: absolute;
@@ -187,7 +192,7 @@
 }
 .BtnCerrar{
   position: absolute;
-  z-index: 8;
+  z-index: 9;
   background-color: aliceblue;
   border-radius: 40px;
   left: calc(50% + 300px);

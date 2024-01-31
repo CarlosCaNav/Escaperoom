@@ -44,14 +44,15 @@ export class AppComponent {
   codigo: boolean = false;
   salida: boolean = false; /* esto es si puedes salir de la habitacion o no */
 
+  audioclick = new Audio('assets/click.ogg');
+/*   audioroce = new Audio('assets/roce.ogg'); */
 
 
   /*  pelota(){
     } */
 
   rotar(grados: number) {
-    const audio = new Audio('assets/click.ogg');
-        audio.play();
+    this.audioclick.play();
     this.rotacion += grados;
     this.transformacion = "rotate(" + this.rotacion + "deg)";
     this.giro = this.rotacion * -1;
@@ -60,16 +61,12 @@ export class AppComponent {
     if (this.posicion == 0 && this.rotacionp == 2) {
       this.altura = 10;
       this.posicion = 1;
-      const audio = new Audio('assets/roce.ogg');
-          audio.play();
     }
 
 
     if (this.posicion == 1 && this.rotacionp == 1) {
       this.fondo = 96;
       this.posicion = 2;
-      const audio = new Audio('assets/roce.ogg');
-          audio.play();
     }
     if (this.posicion == 1 && this.rotacionp == 0) {
       this.altura = 240;
@@ -81,8 +78,6 @@ export class AppComponent {
     if (this.posicion == 2 && this.rotacionp == 0) {
       this.altura = 138;
       this.posicion = 3;
-      const audio = new Audio('assets/roce.ogg');
-          audio.play();
     }
     if (this.posicion == 2 && this.rotacionp == 3) {
       this.fondo = 14;
@@ -98,8 +93,6 @@ export class AppComponent {
     if (this.posicion == 3 && this.rotacionp == 2) {
       this.altura = 10;
       this.posicion = 2;
-      const audio = new Audio('assets/roce.ogg');
-          audio.play();
     }
 
 
@@ -127,15 +120,9 @@ export class AppComponent {
 
 
     if (this.posicion == 6 && this.rotacionp == 2) {
+      this.ftubos = 0;
       this.altura = -145;
-      this.posicion = 7;/* 
-      setTimeout(() => {
-        window.alert("aquí en la bola aparecerá una imagen con el número 4 mismo")
-      }, 1000); */
-      
-      setTimeout(() => {
-        this.ftubos = 0;
-      }, 1000);
+      this.posicion = 7;
     }
 
     if (this.posicion == 6 && this.rotacionp == 3) {
@@ -170,7 +157,7 @@ export class AppComponent {
 
   puerta() {
     if (this.comunicacionService.estado == true) { window.alert("enhorabuena! has conseguido salir"), console.log("furula el componente") }
-    else { 
+    else {
       window.alert("Todavía no puedes salir, debes introducir un código correcto");
     }
   }
@@ -180,7 +167,7 @@ export class AppComponent {
 
   cerrar() {
     this.codigo = false;
-    this.ayuda = 0;
+    /* this.ayuda = 0; */
   }
 
   interruptor() {
@@ -188,8 +175,7 @@ export class AppComponent {
     console.log("tubo " + this.ftubos + " posición"); /* borrar esto cuando haya descubierto por qué no furula */
 
 
-    const audio = new Audio('assets/click.ogg');
-        audio.play();
+    this.audioclick.play();
     if (this.luz == 0 && this.linternaUV == 2) {
       this.luz = 4;
     }
@@ -227,23 +213,37 @@ export class AppComponent {
     this.salida = true, console.log("furula")
   }
 
-  botonayuda(){
-    if (this.ayuda != 0){
-      this.ayuda = 0;}
-      else if (this.altura != -145 && this.luz == 0){
-        this.ayuda = 2;}
+  botonayuda() {
+    if (this.ayuda != 0) {
+      this.ayuda = 0;
+    }
+    else if (this.altura != -145 && this.luz == 0) {
+      this.ayuda = 2;
+    }
+    else if (this.codigo == true ) {
+      this.ayuda = 7;
+    }
 
 
-      else if (this.luz == 4){
-        this.ayuda = 1;}
-        else if (this.luz == 0 && this.linternaUV == 2 && this.altura == -145){
-          this.ayuda = 3;}
-          else if (this.luz == 0 && this.linternaUV == 0 && this.altura == -145){
-            this.ayuda = 4;}
-            else if (this.uv == 3){
-              this.ayuda = 5;}
-              else if (this.salida == true){
-                this.ayuda = 6;}
+    else if (this.luz == 4) {
+      this.ayuda = 1;
+    }
+    else if (this.luz == 0 && this.linternaUV == 2 && this.altura == -145) {
+      this.ayuda = 3;
+    }
+    else if (this.luz == 0 && this.linternaUV == 0  && this.altura == -145) {
+      this.ayuda = 4;
+    }
+    else if (this.uv == 3) {
+      this.ayuda = 5;
+    }
+    else if (this.luz == 0 && this.linternaUV == 0.1  && this.altura == -145) {
+      this.ayuda = 4;
+    }
+    else if (this.salida == true) {
+      this.ayuda = 6;
+    }
+    console.log("luz " + this.luz);
   }
 
   @HostListener('document:mousemove', ['$event'])

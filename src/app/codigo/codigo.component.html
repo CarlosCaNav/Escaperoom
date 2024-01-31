@@ -1,5 +1,5 @@
 <div class="Calculadora">
-    <div id="resultado">
+    <div id="resultado"   [ngStyle]="{'background-color': color}">
       {{resultado}}
     </div>
     <button class="Caja c1" (click)="pulsarBoton('1')">
