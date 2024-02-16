@@ -38,7 +38,7 @@
     border-radius: 10px;
     box-shadow: 8px 8px 0px rgb(34, 34, 34);
     background-color: rgb(224, 224, 224);
-    margin-top: 10vw;
+    margin-top: calc(50vh - 300px);
     margin-left: calc(50vw - 150px);
 
 }

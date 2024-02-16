@@ -37,12 +37,13 @@
 
 
 .boxtubo {
-  zoom: 0.8;
+  /* zoom: 0.8; */
+  scale: 0.8;
   z-index: 2;
   transition-duration: 0.5s;
+  top: calc(50vh - 240px);
+  left: calc(50vw - 150px);
   position: absolute;
-  top: calc(50% - 240px);
-  left: calc(50% - 150px);
 }
 
 .bola {
@@ -61,8 +62,8 @@
   position: absolute;
   z-index: 2;
   height: 100px;
-  top: calc(50vh + 30px);
-  left: calc(50% - 200px);
+  top: calc(50vh + 0px);
+  left: calc(50vw - 200px);
   opacity: 30%;
   transition: 0.5s;
 }
@@ -77,8 +78,8 @@
   position: absolute;
   z-index: 2;
   height: 100px;
-  top: calc(50vh + 30px);
-  left: calc(50% + 110px);
+  top: calc(50vh + 0px);
+  left: calc(50vw + 110px);
   opacity: 30%;
   transition: 0.5s;
 }
@@ -92,8 +93,8 @@
 .puerta {
   z-index: 2;
   position: absolute;
-  left: calc(50% + 560px);
-  top: calc(50% - 150px);
+  left: calc(50vw + 560px);
+  top: calc(50vh - 150px);
   /* 
   border: 5px solid black; */
   height: 550px;
@@ -104,9 +105,9 @@
 .interruptor {
   z-index: 6;
   position: absolute;
-  left: calc(50% + 375px);
-  top: calc(50% + 70px);
-       /* border: 5px solid black; */
+  left: calc(50vw + 375px);
+  top: calc(50vh + 70px);
+       /* border: 5px solid black; */ 
   height: 65px;
   width: 65px;
   cursor: url(/assets/dedo.png), auto;
@@ -115,8 +116,8 @@
 .codigo {
   z-index: 2;
   position: absolute;
-  left: calc(50% + 375px);
-  top: calc(50% - 40px);
+  left: calc(50vw + 375px);
+  top: calc(50vh - 40px);
        /* border: 5px solid black; */
   height: 65px;
   width: 65px;
@@ -126,8 +127,8 @@
 
 .linterno {
   position: absolute;
-  left: calc(50% + 50px);
-  top: calc(50% + 100px);
+  left: calc(50vw + 50px);
+  top: calc(50vh + 100px);
   height: 100px;
   width: 165px;
   cursor: url(/assets/dedo.png), auto;
@@ -169,8 +170,8 @@
   z-index: 20;
   background-color: aliceblue;
   border-radius: 40px;
-  left: calc(50% - 250px);
-  top: calc(50% - 150px);
+  left: calc(50vw - 250px);
+  top: calc(50vh - 150px);
   width: 500px;
   text-align: center;
   border: 5px solid black;
@@ -182,8 +183,8 @@
   z-index: 8;
   background-color: aliceblue;
   border-radius: 40px;
-  left: calc(50% + 300px);
-  top: calc(50% - 300px);
+  left: calc(50vw + 300px);
+  top: calc(50vh - 300px);
   text-align: center;
   border: 5px solid black;
   padding: 10px;
@@ -195,8 +196,8 @@
   z-index: 9;
   background-color: aliceblue;
   border-radius: 40px;
-  left: calc(50% + 300px);
-  top: calc(50% - 300px);
+  left: calc(50vw + 300px);
+  top: calc(50vh - 300px);
   text-align: center;
   border: 5px solid red;
   padding: 10px;
