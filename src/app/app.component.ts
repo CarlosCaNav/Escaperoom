@@ -122,8 +122,8 @@ export class AppComponent {
 
     if (this.posicion == 6 && this.rotacionp == 2) {
       this.ftubos = 0;
-      this.altura = -145;
-      this.posicion = 7;
+      this.altura = -168;
+      this.posicion = 7; /* posición final */
     }
 
     if (this.posicion == 6 && this.rotacionp == 3) {
@@ -224,7 +224,7 @@ export class AppComponent {
     else if (this.codigo == true) {
       this.ayuda = 7;
     }
-    else if (this.altura != -145 && this.luz == 0) {
+    else if (this.altura != -168 && this.luz == 0) {
       this.ayuda = 2;
     }
 
@@ -232,16 +232,16 @@ export class AppComponent {
     else if (this.luz == 4) {
       this.ayuda = 1;
     }
-    else if (this.luz == 0 && this.linternaUV == 2 && this.altura == -145) {
+    else if (this.luz == 0 && this.linternaUV == 2 && this.altura == -168) {
       this.ayuda = 3;
     }
-    else if (this.luz == 0 && this.linternaUV == 0 && this.altura == -145) {
+    else if (this.luz == 0 && this.linternaUV == 0 && this.altura == -168) {
       this.ayuda = 4;
     }
     else if (this.uv == 3) {
       this.ayuda = 5;
     }
-    else if (this.luz == 0 && this.linternaUV == 0.1 && this.altura == -145) {
+    else if (this.luz == 0 && this.linternaUV == 0.1 && this.altura == -168) {
       this.ayuda = 4;
     }
     else if (this.salida == true) {

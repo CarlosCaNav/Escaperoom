@@ -90,6 +90,7 @@
   cursor: url(/assets/dedo.png), auto;
 }
 
+
 .puerta {
   z-index: 2;
   position: absolute;
@@ -205,11 +206,28 @@
   cursor: url(/assets/dedo.png), auto;
 }
 
+.Bportafolio{
+  position: absolute;
+  z-index: 8;
+  background-color: rgb(38, 78, 114);
+  border-radius: 40px;
+  left: calc(50vw + 550px);
+  top: calc(50vh - 450px);
+  text-align: center;
+  border: 5px solid black;
+  padding: 2px;
+  padding-top: 4px;
+  font-size: 20px;
+  cursor: url(/assets/dedo.png), auto;
+  text-decoration: none;
+  color: #000;
+}
+
 .b42{
   position: absolute;
   z-index: 3;
   transform: rotate(180deg);
-  top:-143px;
+  top:-165px;
   left:254px;
   height: 30px;
   width: 30px;
